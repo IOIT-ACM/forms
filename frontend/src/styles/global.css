@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.cdnfonts.com/css/thegoodmonolith");
+@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
+
+:root {
+  --color-text: #ffffff;
+  --transition-medium: 0.3s ease;
+  --font-size-base: 14px;
+  --border-radius: 0px;
+  --vignette-size: 0px;
+  --hover-scale: 1.05;
+  --page-vignette-size: 300px;
+  --page-vignette-color: rgba(0, 0, 0, 0.49);
+  --page-vignette-strong-size: 150px;
+  --page-vignette-strong-color: rgba(0, 0, 0, 0.595);
+  --page-vignette-extreme-size: 80px;
+  --page-vignette-extreme-color: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  font-family: "PP Neue Montreal", sans-serif;
+  background-color: #000000;
+  color: var(--color-text);
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-size: 300px 300px;
+  animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@keyframes noise-animation {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  20% { transform: translate(-4%, 2%); }
+  30% { transform: translate(2%, -4%); }
+  40% { transform: translate(-2%, 5%); }
+  50% { transform: translate(-4%, 2%); }
+  60% { transform: translate(3%, 0); }
+  70% { transform: translate(0, 3%); }
+  80% { transform: translate(-3%, 0); }
+  90% { transform: translate(2%, 2%); }
+  100% { transform: translate(1%, 0); }
+}
+
+.tp-dfwv { z-index: 10001 !important; }
+.tp-rotv { opacity: 0.5 !important; }
+.tp-rotv.tp-rotv-expanded { opacity: 1 !important; }
+.tp-rotv.tp-rotv-collapsed { opacity: 0.7 !important; }
